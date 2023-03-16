@@ -1,5 +1,5 @@
 import {it,expect,describe} from'vitest'
-import {validateNumber,validateStringNotEmpty} from './validation'
+import {cleanNumbers, validateNumber,validateStringNotEmpty} from './validation'
 
 
 describe('Validation string Empty Tests', ()=>{
@@ -34,4 +34,23 @@ describe('Should Validate', ()=>{
         expect(validationFn).toThrow();
       });
 
+})
+
+describe('Clean Number() tests', ()=>{
+    it('should always give an array of numbers if an array of string is given', ()=>{
+        let numbers =['1','2','3','4']
+        const cleanedNumbers= cleanNumbers(numbers)
+        expect(cleanedNumbers).toEqual([1,2,3,4])
+    })
+
+    it('should throw an error if an invaligd argument is given',()=>{
+        const numbers=['', 1,  ]
+        const numbers1=[false,true]
+
+        const cleanedNumberFn= ()=>cleanNumbers(numbers)
+        const cleanedNumberFn1= ()=>cleanNumbers(numbers1)
+
+        expect(cleanedNumberFn).toThrow()
+        expect(cleanedNumberFn1).toThrow()
+    })
 })
