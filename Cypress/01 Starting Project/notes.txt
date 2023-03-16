@@ -1,0 +1,9 @@
+Commands
+
+This are reusable "shortcuts" for more complex command chains
+e.g. cy.submitForm() could be a custom command that finds the submit button in a form and clicks it.
+dont create custom comannds for everything- make it clear and only when needed.
+
+Queries
+its a synchronous , chainable,retriable Commands.
+e.g. cy.getById('abc') could be a custom query that finds elements with  data-cy='abc'
